@@ -20,7 +20,7 @@ var TESTI = {
       return "Ciao " + nome + ",\n\n" +
         "abbiamo ricevuto la tua iscrizione a " + EVENTO + ", sabato 5 dicembre 2026 alla Casa dei Giochi " +
         "(Via Sant'Uguzzone 8, Milano).\n\n" +
-        "L'iscrizione è valida solo dopo il pagamento: 20€ entro il 15 novembre, 25€ entro il 25 novembre.\n" +
+        "I posti sono limitati a un massimo di 30 partecipanti e l'iscrizione è valida solo dopo il pagamento: 20€ entro il 15 novembre, 25€ entro il 25 novembre.\n" +
         "Paga qui: " + PAYPAL + "\n\n" +
         "Ricorda di caricare la lista su Longshanks entro il 28 novembre.\n\n" +
         "A presto!\n" + MITTENTE;
@@ -32,7 +32,7 @@ var TESTI = {
       return "Hi " + nome + ",\n\n" +
         "we have received your registration for " + EVENTO + ", Saturday 5 December 2026 at Casa dei Giochi " +
         "(Via Sant'Uguzzone 8, Milan).\n\n" +
-        "Your registration is confirmed only after payment: €20 by November 15th, €25 by November 25th.\n" +
+        "Spots are limited to a maximum of 30 participants and your registration is confirmed only after payment: €20 by November 15th, €25 by November 25th.\n" +
         "Pay here: " + PAYPAL + "\n\n" +
         "Remember to upload your army list to Longshanks by November 28th.\n\n" +
         "See you soon!\n" + MITTENTE;

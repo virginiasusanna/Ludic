@@ -170,3 +170,4 @@ form.reg .actions{grid-column:1/-1;text-align:center;margin-top:26px}
 .home footer{display:flex;align-items:center;justify-content:center;gap:10px}
 .home footer .foot-logo{height:30px;margin:0}
 @media (max-width:560px){.brand{gap:12px}.brand .ludic{height:62px}.landing .brand .ludic{height:56px}.brand .logo{width:150px}}
+.cap{text-align:center;color:var(--gold-2);margin:-12px 0 22px;font-size:18px}
