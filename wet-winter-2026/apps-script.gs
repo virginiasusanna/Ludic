@@ -10,7 +10,7 @@ var MITTENTE = "Ludic Milan";
 var PAYPAL = "https://paypal.me/conquestludic";
 // Chi riceve la notifica di ogni nuova iscrizione, oltre all'account che invia (separa con virgole).
 var ALTRE_NOTIFICHE = "";
-// Tetto massimo di iscritti: raggiunto questo numero il form sul sito si chiude.
+// Tetto massimo di iscritti (solo informativo, usato nelle notifiche).
 var MAX_ISCRITTI = 30;
 var HEADERS = ["Data", "Nome", "Cognome", "Email", "Nick Para Bellum", "LSID", "Lingua", "Pagato", "Note"];
 var COL = { nome: 2, email: 4, lingua: 7, pagato: 8 };
@@ -59,12 +59,6 @@ function iscrittiValidi_(sheet) {
     .filter(function (r) { return r[COL.email - 1] && r[8] !== "Email già presente"; }).length;
 }
 
-// Il sito chiede quanti posti restano (?action=status).
-function doGet(e) {
-  var n = iscrittiValidi_(foglio_());
-  var out = { iscritti: n, max: MAX_ISCRITTI, left: Math.max(0, MAX_ISCRITTI - n), full: n >= MAX_ISCRITTI };
-  return ContentService.createTextOutput(JSON.stringify(out)).setMimeType(ContentService.MimeType.JSON);
-}
 
 function doPost(e) {
   var p = e.parameter;
@@ -73,7 +67,6 @@ function doPost(e) {
   lock.waitLock(10000);
   try {
     var sheet = foglio_();
-    if (iscrittiValidi_(sheet) >= MAX_ISCRITTI) return ContentService.createTextOutput("full");
     var emails = sheet.getLastRow() > 1
       ? sheet.getRange(2, COL.email, sheet.getLastRow() - 1, 1).getValues().map(function (r) { return String(r[0]).toLowerCase(); })
       : [];

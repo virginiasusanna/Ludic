@@ -14,7 +14,6 @@ Lo script `apps-script.gs`, collegato al foglio:
 - salva ogni iscrizione (segnala le email doppie nella colonna Note);
 - manda al giocatore l'email di conferma in italiano o inglese, con il link PayPal e le scadenze;
 - manda all'organizzazione una notifica con i dati e il numero di iscritti;
-- chiude le iscrizioni a 30 iscritti (`MAX_ISCRITTI`): il sito mostra i posti rimasti e poi "Posti esauriti";
 - aggiunge al foglio il menu "W.E.T." con "Promemoria pagamento" (a chi non ha la spunta Pagato)
   ed "Email a tutti gli iscritti…".
 
