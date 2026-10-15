@@ -92,7 +92,7 @@
         <div><label for="cognome">Cognome</label><input id="cognome" name="cognome" autocomplete="family-name" required></div>
         <div class="full"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
         <div><label for="nick">Nick Para Bellum</label><input id="nick" name="nick_parabellum" autocomplete="off"></div>
-        <div><label for="lsid">LSID</label><input id="lsid" name="lsid" autocomplete="off" required></div>
+        <div><label for="lsid">LSID</label><input id="lsid" name="lsid" autocomplete="off" required aria-describedby="lsid-hint"><small class="hint" id="lsid-hint">N.B.: per LSID si intende il codice utente su Longshanks</small></div>
         <div class="actions"><button class="btn" type="submit">Iscriviti</button></div>
       </form>
       <div class="msg err" id="form-err">Qualcosa è andato storto, riprova.</div>
@@ -102,7 +102,6 @@
         <a class="btn" href="https://paypal.me/conquestludic" target="_blank" rel="noopener">Paga con PayPal</a>
         <p class="pay-sub">20€ entro il 15 novembre · 25€ entro il 25 novembre<br>Nella causale indica nome, cognome e LSID.</p>
       </div>
-      <p class="note">N.B.: per LSID si intende il codice utente su Longshanks</p>
     </div>
   </section>
 

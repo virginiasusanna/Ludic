@@ -92,7 +92,7 @@
         <div><label for="cognome">Last name</label><input id="cognome" name="cognome" autocomplete="family-name" required></div>
         <div class="full"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
         <div><label for="nick">Nick Para Bellum</label><input id="nick" name="nick_parabellum" autocomplete="off"></div>
-        <div><label for="lsid">LSID</label><input id="lsid" name="lsid" autocomplete="off" required></div>
+        <div><label for="lsid">LSID</label><input id="lsid" name="lsid" autocomplete="off" required aria-describedby="lsid-hint"><small class="hint" id="lsid-hint">N.B.: the LSID field means the Longshanks account number</small></div>
         <div class="actions"><button class="btn" type="submit">Subscribe</button></div>
       </form>
       <div class="msg err" id="form-err">Something went wrong, please try again.</div>
@@ -102,7 +102,6 @@
         <a class="btn" href="https://paypal.me/conquestludic" target="_blank" rel="noopener">Pay with PayPal</a>
         <p class="pay-sub">€20 by November 15th · €25 by November 25th<br>Please include your name, surname and LSID in the payment note.</p>
       </div>
-      <p class="note">N.B.: the LSID field means the Longshanks account number</p>
     </div>
   </section>
 
