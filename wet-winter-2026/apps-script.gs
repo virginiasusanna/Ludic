@@ -10,7 +10,9 @@ var MITTENTE = "Ludic Milan";
 var PAYPAL = "https://paypal.me/conquestludic";
 // Chi riceve la notifica di ogni nuova iscrizione, oltre all'account che invia (separa con virgole).
 var ALTRE_NOTIFICHE = "";
-var HEADERS = ["Data", "Nome", "Cognome", "Email", "Nick Parabellum", "LSID", "Lingua", "Pagato", "Note"];
+// Tetto massimo di iscritti: raggiunto questo numero il form sul sito si chiude.
+var MAX_ISCRITTI = 30;
+var HEADERS = ["Data", "Nome", "Cognome", "Email", "Nick Para Bellum", "LSID", "Lingua", "Pagato", "Note"];
 var COL = { nome: 2, email: 4, lingua: 7, pagato: 8 };
 
 var TESTI = {
@@ -50,6 +52,20 @@ function foglio_() {
   return sheet;
 }
 
+// Conta le iscrizioni valide (le email doppie non contano).
+function iscrittiValidi_(sheet) {
+  if (sheet.getLastRow() < 2) return 0;
+  return sheet.getRange(2, 1, sheet.getLastRow() - 1, HEADERS.length).getValues()
+    .filter(function (r) { return r[COL.email - 1] && r[8] !== "Email già presente"; }).length;
+}
+
+// Il sito chiede quanti posti restano (?action=status).
+function doGet(e) {
+  var n = iscrittiValidi_(foglio_());
+  var out = { iscritti: n, max: MAX_ISCRITTI, left: Math.max(0, MAX_ISCRITTI - n), full: n >= MAX_ISCRITTI };
+  return ContentService.createTextOutput(JSON.stringify(out)).setMimeType(ContentService.MimeType.JSON);
+}
+
 function doPost(e) {
   var p = e.parameter;
   var lingua = p.lingua === "en" ? "en" : "it";
@@ -57,6 +73,7 @@ function doPost(e) {
   lock.waitLock(10000);
   try {
     var sheet = foglio_();
+    if (iscrittiValidi_(sheet) >= MAX_ISCRITTI) return ContentService.createTextOutput("full");
     var emails = sheet.getLastRow() > 1
       ? sheet.getRange(2, COL.email, sheet.getLastRow() - 1, 1).getValues().map(function (r) { return String(r[0]).toLowerCase(); })
       : [];
@@ -72,8 +89,8 @@ function doPost(e) {
   MailApp.sendEmail({
     to: [Session.getEffectiveUser().getEmail(), ALTRE_NOTIFICHE].filter(String).join(","),
     subject: "Nuova iscrizione W.E.T. Winter: " + p.nome + " " + p.cognome,
-    body: "Nome: " + p.nome + " " + p.cognome + "\nEmail: " + p.email + "\nNick Parabellum: " + p.nick_parabellum +
-      "\nLSID: " + p.lsid + "\nLingua: " + lingua + "\n\nIscritti totali: " + (foglio_().getLastRow() - 1) +
+    body: "Nome: " + p.nome + " " + p.cognome + "\nEmail: " + p.email + "\nNick Para Bellum: " + p.nick_parabellum +
+      "\nLSID: " + p.lsid + "\nLingua: " + lingua + "\n\nIscritti: " + iscrittiValidi_(foglio_()) + " / " + MAX_ISCRITTI +
       "\n" + SpreadsheetApp.getActiveSpreadsheet().getUrl(),
     name: MITTENTE
   });
