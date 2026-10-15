@@ -136,3 +136,25 @@ form.reg .actions{grid-column:1/-1;text-align:center;margin-top:26px}
   .langs .btn{min-width:180px}
   .topbar{font-size:11px;letter-spacing:.12em}
 }
+
+/* Galateo */
+.landing .hero.small{padding:80px 16px 48px}
+.landing .hero.small h1{font-size:clamp(34px,6.5vw,64px)}
+.terrains{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.terrain{background:linear-gradient(180deg,var(--panel-2),var(--panel));border:1px solid var(--line);border-top:2px solid var(--gold-3);padding:22px 20px}
+.terrain h3{margin:0 0 4px;font-size:20px;color:var(--gold-2)}
+.terrain .sr{margin:0 0 12px;color:var(--muted);font-size:14px;font-style:italic}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tags a,.tags span{font-family:var(--display);font-size:12px;letter-spacing:.08em;padding:4px 10px;border:1px solid var(--line-2);color:var(--text);text-decoration:none;background:#100e0b}
+.tags a{color:var(--gold-2)}
+.tags a:hover{border-color:var(--gold);background:rgba(201,164,92,.1)}
+.rules{margin:0}
+.rule{padding:16px 0;border-bottom:1px dashed var(--line);scroll-margin-top:20px}
+.rule:last-child{border-bottom:0;padding-bottom:0}
+.rule dt{font-family:var(--display);color:var(--gold-2);letter-spacing:.1em;text-transform:uppercase;font-size:16px;margin-bottom:6px}
+.rule dd{margin:0}
+.rule:target{background:rgba(201,164,92,.07);box-shadow:-12px 0 0 rgba(201,164,92,.07),12px 0 0 rgba(201,164,92,.07)}
+.note.top{margin:0 0 6px;text-align:left}
+@media (max-width:860px){.terrains{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.terrains{grid-template-columns:1fr}}
+@media (max-width:560px){h2{letter-spacing:.08em;font-size:22px}}
