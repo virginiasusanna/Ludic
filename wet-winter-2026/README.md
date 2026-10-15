@@ -34,5 +34,4 @@ Pubblicato dal repository `Ludic` (vedi README principale).
 Indirizzo: https://virginiasusanna.github.io/Ludic/wet-winter-2026/
 
 ## Da completare
-- `assets/hero.jpg` è ancora l'immagine della Summer: sostituirla con quella invernale.
 - Link Longshanks: punta alla home di longshanks.org finché non c'è l'evento.
