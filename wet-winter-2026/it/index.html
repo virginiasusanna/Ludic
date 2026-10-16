@@ -92,7 +92,7 @@
         <div><label for="cognome">Cognome</label><input id="cognome" name="cognome" autocomplete="family-name" required></div>
         <div class="full"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
         <div><label for="nick">Nick Para Bellum</label><input id="nick" name="nick_parabellum" autocomplete="off"></div>
-        <div><label for="lsid">LSID</label><input id="lsid" name="lsid" autocomplete="off" required aria-describedby="lsid-hint"><small class="hint" id="lsid-hint">N.B.: per LSID si intende il codice utente su Longshanks</small></div>
+        <div><label for="lsid">LSID</label><input id="lsid" name="lsid" autocomplete="off" required inputmode="numeric" pattern="[0-9]+" placeholder="es. 35854" data-msg="L’LSID è il numero del tuo profilo Longshanks: inserisci solo cifre (es. 35854), non il nickname." aria-describedby="lsid-hint"><small class="hint" id="lsid-hint">N.B.: per LSID si intende il codice utente su Longshanks</small></div>
         <div class="actions"><button class="btn" type="submit">Iscriviti</button></div>
       </form>
       <div class="msg err" id="form-err">Qualcosa è andato storto, riprova.</div>
